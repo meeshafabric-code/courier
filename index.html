@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processing...</title>
+    <title>Redirecting...</title>
     <style>
         body {
             display: flex;
@@ -25,28 +25,16 @@
     <div class="loader">Loading, please wait...</div>
 
     <script>
-        // Google Script URL aur Google Redirect dono setup hain, aapko kuch change nahi karna hai
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
-        const REDIRECT_URL = "https://www.google.com";
+        // Aapka Google Script URL hi ab aapka final redirect link hai
+        const REDIRECT_URL = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
 
-        function sendAndRedirect() {
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            fetch(WEB_APP_URL, {
-                method: 'POST',
-                mode: 'no-cors', 
-                keepalive: true,
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: urlParams.toString()
-            });
-
-            // Bina kisi popup blocker ko trigger kiye turant screen badal dega
+        function redirectToScript() {
+            // Bina kisi popup ko trigger kiye yeh user ko seedha aapke Google Script link par bhej dega
             window.location.replace(REDIRECT_URL);
         }
 
-        window.onload = sendAndRedirect;
+        // Page load hote hi instant redirect
+        window.onload = redirectToScript;
     </script>
 </body>
 </html>
