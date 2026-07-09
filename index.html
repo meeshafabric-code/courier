@@ -1,40 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-        }
-        .loader {
-            font-size: 16px;
-            color: #666666;
-        }
-    </style>
-</head>
-<body>
 
-    <div class="loader">Loading, please wait...</div>
+    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec">
 
     <script>
-        // Aapka Google Script URL hi ab aapka final redirect link hai
-        const REDIRECT_URL = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
-
-        function redirectToScript() {
-            // Bina kisi popup ko trigger kiye yeh user ko seedha aapke Google Script link par bhej dega
-            window.location.replace(REDIRECT_URL);
-        }
-
-        // Page load hote hi instant redirect
-        window.onload = redirectToScript;
+        // 2. Agar meta tag kaam nahi kiya, toh yeh JavaScript redirect karegi
+        window.location.href = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
     </script>
+</head>
+<body>
+    <p>Agar aap automatic redirect nahi hue hain, toh <a href="https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec">yahan click karein</a>.</p>
 </body>
 </html>
