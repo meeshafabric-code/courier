@@ -4,15 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-
-    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec">
-
-    <script>
-        // 2. Agar meta tag kaam nahi kiya, toh yeh JavaScript redirect karegi
-        window.location.href = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
-    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f4f4f9;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover { background-color: #0056b3; }
+    </style>
 </head>
 <body>
-    <p>Agar aap automatic redirect nahi hue hain, toh <a href="https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec">yahan click karein</a>.</p>
+
+    <h2>Aapko sahi page par bheja ja raha hai...</h2>
+    <p>Agar automatic nahi khula, toh niche diye button par click karein:</p>
+    <br>
+    <a class="btn" href="https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec" target="_top">Aage Badhein</a>
+
+    <script>
+        // User ke bina click kiye bhi ek baar try karega
+        setTimeout(function(){
+            window.location.href = "https://script.google.com/macros/s/AKfycbxVeOVwQIeqpP9HQfhgVY2UMiBAgM0yghjnDY9vpN-tlhpoPqTBN0-eXvM1ojLGWOaW/exec";
+        }, 500);
+    </script>
+
 </body>
 </html>
